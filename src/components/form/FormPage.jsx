@@ -15,7 +15,6 @@ function FormPage() {
   };
   const onSubmit = (event) => {
     event.preventDefault();
-    //console.log("BarCode is: ", barcode);
     if (vaildate(barcode)) {
       setError((prevState) => !prevState);
       history.push(`/result/${barcode}`);
@@ -36,7 +35,6 @@ function FormPage() {
         {error && <p className="error">Please Enter Vaild Barcode!!</p>}
         <button onClick={onSubmit}>Submit</button>
       </form>
-      
     </div>
   );
 }

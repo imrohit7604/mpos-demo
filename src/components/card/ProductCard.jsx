@@ -1,20 +1,43 @@
 import React from "react";
-import "./myStyle.css";
+import { Link } from "react-router-dom";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; 
+import "./ProductCard.style.scss";
 function ProductCard({ productInfo }) {
   return (
-    <div className="card">
-      <img
-        src="https://yt3.ggpht.com/ytc/AKedOLStkGBEFl44NfTgSBKL5A501NX7z2klSTLsbLfJRQ=s900-c-k-c0x00ffffff-no-rj"
-        alt="Denim Jeans"
-        style={{ width: "100%" }}
-      />
-      <h1 style={{ textTransform: "capitalize" }}>{productInfo.title}</h1>
-      <p>{productInfo.description}</p>
-      <p className="price">$ {productInfo.price.salePrice}</p>
-      <p> MRP Price: $ {productInfo.price.mrp}</p>
-      <p> Saved Amount: $ {productInfo.price.youSaved}</p>
-      <p>{productInfo.inventory.inStock ? "Instock" : "Out of Stock"}</p>
+    <div className="result-container">
+    <div className="product-card">
+      {productInfo.inventory.inStock && (
+        <div className="out-of-stock">Out of stock</div>
+      )}
+      <Carousel showThumbs={false}>
+        {productInfo.images.map((imgUrl) => (
+          <img className="carousel-image" src={imgUrl} />
+        ))}
+      </Carousel>
+      <div className="product-details">
+        <div className="product-name">
+          {productInfo.description}
+        </div>
+        <div className="price-details">
+          <div className="price-text">Price:</div>
+          <div className="mrp">
+            ${productInfo.price.mrp.toFixed(2)}
+          </div>
+          <div className="sale-price">
+            ${productInfo.price.salePrice.toFixed(2)}
+          </div>
+        </div>
+        <div className="saved-price">
+          You saved ${productInfo.price.youSaved.toFixed(2)} on
+          this item.
+        </div>
+      </div>
     </div>
+    <Link to="/">
+        <button>Scan More Barcode</button>
+      </Link>
+  </div>
   );
 }
 

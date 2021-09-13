@@ -2,6 +2,44 @@ import { Link, useParams } from "react-router-dom";
 import "./myStyle.css";
 import { gql, useQuery } from "@apollo/client";
 import ProductCard from "../card/ProductCard";
+import Data from "../card/mock.json";
+import { useEffect } from "react";
+const Loading = () => {
+  return (
+    <img
+      src="/spinner.gif"
+      style={{ display: "flex", margin: "0 auto" }}
+      alt="Loading spinner"
+    />
+  );
+};
+const SomeThingWentWrong = () => {
+  const buttonHandler = () => {
+    window.location.reload();
+  };
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <img
+        src="/SomeThingWentWrong.jpg"
+        style={{
+          display: "flex",
+          margin: "0 auto",
+          borderRadius: "20px",
+          width: "50vh",
+        }}
+        alt="SomeThing went Wrong!!"
+      />
+      <button onClick={buttonHandler}>Try Again</button>
+    </div>
+  );
+};
 const GET_PRODUCT_INFO = gql`
   query GET_DATA($productId: String) {
     getProductById(productId: $productId) {
@@ -21,11 +59,15 @@ function ResultPage() {
     variables: { productId },
   });
 
+  useEffect(() => {
+    console.log("data", Data.data.getProductById);
+  }, []);
 
-  if (error) return <h1> 
-    SomeThing Went Wrong !!</h1>;
 
-  if (loading) return <h1>Loading</h1>;
+  return <ProductCard productInfo={Data.data.getProductById} />;
+  if (error) return <SomeThingWentWrong />;
+
+  if (loading) return <Loading />;
   else {
     return (
       <div className="result-container">
@@ -34,9 +76,6 @@ function ResultPage() {
         ) : (
           <h1>No Product Found !!</h1>
         )}
-        <Link to="/">
-          <button>Scan More Barcode</button>
-        </Link>
       </div>
     );
   }
