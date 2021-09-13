@@ -1,47 +1,49 @@
 input[type="text"] {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 6px;
-  resize: vertical;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    resize: vertical;
 }
+
 label {
-  font-size: 1.5rem;
+    font-size: 1.5rem;
 }
 
 button {
-  background-color: #04aa6d;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+    background-color: #04aa6d;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 button:hover {
-  background-color: #45a049;
+    background-color: #45a049;
 }
 
 .form-container {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 40px;
 }
+
 form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .error {
-  color: red;
+    color: red;
 }

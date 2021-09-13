@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./myStyle.css";
 const vaildate = (barcode) => {
-  const regx = /^[0-9]{9,16}$/;
+  const regx = /^[0-9]{4,16}$/;
   return regx.test(barcode);
 };
 function FormPage() {
@@ -36,6 +36,7 @@ function FormPage() {
         {error && <p className="error">Please Enter Vaild Barcode!!</p>}
         <button onClick={onSubmit}>Submit</button>
       </form>
+      
     </div>
   );
 }
