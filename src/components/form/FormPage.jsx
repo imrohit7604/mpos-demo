@@ -29,11 +29,13 @@ function FormPage() {
           type="text"
           id="barcode"
           value={barcode}
+          autoFocus
           onChange={onChangeHandler}
           placeholder="123456789"
         />
         {error && <p className="error">Please Enter Vaild Barcode!!</p>}
         <button onClick={onSubmit}>Submit</button>
+
       </form>
     </div>
   );

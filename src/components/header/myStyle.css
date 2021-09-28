@@ -38,6 +38,24 @@
   .header-right {
     float: right;
   }
+
+  .pwa-prompt{
+    position: absolute;
+    bottom: 0px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(204, 204, 204);
+    width: 100%;
+    padding: 15px 10px;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .pwa-prompt button{
+    font-size: 14px;
+    margin: 0 20px;
+    padding: 5px 10px;
+  }
   
   /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
   @media screen and (max-width: 500px) {
@@ -48,5 +66,8 @@
     }
     .header-right {
       float: none;
+    }
+    .pwa-prompt{
+      display: flex;
     }
   }

@@ -12,7 +12,7 @@ function ProductCard({ productInfo }) {
       )}
       <Carousel showThumbs={false}>
         {productInfo.images.map((imgUrl) => (
-          <img className="carousel-image" src={imgUrl} />
+          <img className="carousel-image" src={imgUrl} alt="ProductImage" />
         ))}
       </Carousel>
       <div className="product-details">
