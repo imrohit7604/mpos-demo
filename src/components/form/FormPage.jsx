@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import "./myStyle.css";
+import "./FormPage.css";
 const vaildate = (barcode) => {
   const regx = /^[0-9]{4,16}$/;
   return regx.test(barcode);

@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import "./myStyle.css";
+import "./ResultPage.css";
 import { gql, useQuery } from "@apollo/client";
 import ProductCard from "../card/ProductCard";
 import Data from "../card/mock.json";

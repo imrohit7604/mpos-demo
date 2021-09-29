@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
-import "./myStyle.css";
+import "./NavBar.css";
 import { Link } from "react-router-dom";
 import Logo from "./logo.png";
 function NavBar() {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
-
+  const [showBanner, setBanner] = useState(false);
+  const crossCLickHandler = () => {
+    setBanner(true);
+  };
   const makePrompt = () => {
     if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
       alert("This will work in production env/over in https");
@@ -37,9 +40,15 @@ function NavBar() {
           {/* <a href="#home">Scan Bar Code</a> */}
         </div>
       </nav>
-      <div className="pwa-prompt">
+      <div className="pwa-prompt" style={{ display: showBanner && "none" }}>
         Add the mPos to your homescreen
         <button onClick={makePrompt}>Click Here</button>
+        <span
+          style={{ marginRight: "20px", cursor: "pointer" }}
+          onClick={crossCLickHandler}
+        >
+          X
+        </span>
       </div>
     </>
   );
