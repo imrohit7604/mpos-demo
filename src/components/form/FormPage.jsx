@@ -11,6 +11,7 @@ function FormPage() {
   const history = useHistory();
 
   const onChangeHandler = (event) => {
+    
     setBarCode(event.target.value);
   };
   const onSubmit = (event) => {
@@ -31,6 +32,10 @@ function FormPage() {
           value={barcode}
           autoFocus
           onChange={onChangeHandler}
+          onKeyPress={(event)=>{
+            if(event.key==="Enter")
+            history.push(`/result/${barcode}`);
+          }}
           placeholder="123456789"
         />
         {error && <p className="error">Please Enter Vaild Barcode!!</p>}
